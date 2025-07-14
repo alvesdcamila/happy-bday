@@ -1,25 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Contador Especial</title>
-    <style>
-        body{font-family:sans-serif;text-align:center;background:#fff;color:#333;padding:2rem;}
-    #elapsed{font-size:2rem;margin-top:1rem;}
-    img{max-width:300px;margin:1rem auto;}
-    </style>
+  <meta charset="utf-8">
+  <title>Para o meu Amor ❤️</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      font-family: "Segoe UI", sans-serif;
+      background: #fff5f5;
+      color: #b30000;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: 2.2rem;
+    }
+
+    p.mensagem {
+      max-width: 600px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 0 0 2.5rem;
+    }
+
+    video.video {
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 2.5rem;
+    }
+
+    #contador {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Desde o começo da nossa jornada</h1>
-    <p>Começou há...</p>
+  <h1>Feliz Vida, meu amor!</h1>
 
-    <img src="./TESTE.png" alt="imagem especial">
+  <p class="mensagem">
+    Hoje o mundo celebra o dia em que teu coração começou a bater.  
+    E desde então, cada batida tua mudou o compasso do universo, inclusive o meu.  
+    <br><br>
+    Eu não estava ali naquele primeiro segundo.  
+    Mas hoje, te olhando, te sentindo, eu quase consigo ouvir o eco daquele começo.  
+    Como se o tempo tivesse me sussurrado:  
+    <em>“É por ela que você vai contar os dias agora.”</em>  
+    <br><br>
+    Esse contador abaixo não mostra só horas e anos.  
+    Ele registra o milagre da tua vida, o ritmo sagrado que pulsa no teu peito.  
+    Cada segundo ali em movimento é uma promessa minha:  
+    <strong>quero estar com você em cada batida, até o último som.</strong>  
+    <br><br>
+    Teu aniversário não é só uma data no calendário.  
+    É o lembrete de que o amor existe.  
+    De que o tempo tem sentido quando vivido contigo.  
+    E que tudo — tudo mesmo — vale a pena, se for ao teu lado.  
+    <br><br>
+    Obrigada por existir. <br>
+    Obrigada por pulsar. <br>
+    <strong>Hoje, o tempo celebra você. E eu celebro cada parte disso.</strong> <br>
+    Feliz vida, meu amor. 💓
+  </p>
 
-    <div id="elapsed">Calculando...</div>
+  <!-- VÍDEO -->
+  <video controls class="video">
+    <source src="meuvideo.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
 
-    <p style="margin-top: 2rem;">Escaneie esse QRCode para saber mais</p>    
+  <!-- CONTADOR -->
+  <div id="elapsed">⏳ Calculando…</div>
 
+  <script>
+    const INICIO = new Date("1999-08-10T11:00:00-03:00");
+
+    function atualizar() {
+      let diff = Date.now() - INICIO;
+
+      const ANO = 365.25 * 24 * 60 * 60 * 1000;
+      const DIA = 24 * 60 * 60 * 1000;
+      const HORA = 60 * 60 * 1000;
+      const MIN = 60 * 1000;
+
+      const anos = Math.floor(diff / ANO); diff %= ANO;
+      const dias = Math.floor(diff / DIA); diff %= DIA;
+      const horas = Math.floor(diff / HORA); diff %= HORA;
+      const minutos = Math.floor(diff / MIN); diff %= MIN;
+      const segundos = Math.floor(diff / 1000);
+
+      document.getElementById("elapsed").textContent =
+        `${anos} anos • ${dias} dias • ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    atualizar();
+    setInterval(atualizar, 1000);
+  </script>
 </body>
-
-
 </html>
